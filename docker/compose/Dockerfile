@@ -9,12 +9,12 @@ RUN 	    apt update && apt upgrade -y \
         	libfontconfig libicu-dev libunwind8 libssl-dev sqlite3 libsqlite3-dev libmariadb-dev libmariadb-dev-compat locales ffmpeg gnupg2 apt-transport-https software-properties-common ca-certificates tzdata \
         	lua5.3 libz-dev rapidjson-dev \
             && install -m 0755 -d /etc/apt/keyrings \
-            && sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc \
-            && sudo chmod a+r /etc/apt/keyrings/docker.asc \
+            && curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc \
+            && chmod a+r /etc/apt/keyrings/docker.asc \
             && echo \
               "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
               buster stable" | \
-              sudo tee /etc/apt/sources.list.d/docker.list > /dev/null \
+              tee /etc/apt/sources.list.d/docker.list > /dev/null \
             && apt-get update \
             && apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin \
     		&& dpkg-reconfigure --frontend noninteractive locales \
