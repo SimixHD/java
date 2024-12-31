@@ -14,8 +14,8 @@ RUN 	    apt update && apt upgrade -y \
             && echo \
               "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
               buster stable" | \
-              sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-            apt-get update \
+              sudo tee /etc/apt/sources.list.d/docker.list > /dev/null \
+            && apt-get update \
             && apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin \
     		&& dpkg-reconfigure --frontend noninteractive locales \
     		&& useradd -m -d /home/container -s /bin/bash container \
