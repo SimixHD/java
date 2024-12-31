@@ -9,7 +9,7 @@ RUN         apt update && apt upgrade -y \
     			liblua5.3 libz-dev rapidjson-dev \
 		&& update-locale lang=en_US.UTF-8 \
 		&& dpkg-reconfigure --frontend noninteractive locales \
-		&& curl -L "https://github.com/docker/compose/releases/download/2.32.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose \
+		&& curl -SL https://github.com/docker/compose/releases/download/v2.32.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose \
   		&& chmod +x /usr/local/bin/docker-compose \
 		&& useradd -m -d /home/container -s /bin/bash container
   	
