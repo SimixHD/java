@@ -9,7 +9,7 @@ RUN 	    apt update && apt upgrade -y \
         	libfontconfig libicu-dev libunwind8 libssl-dev sqlite3 libsqlite3-dev libmariadb-dev libmariadb-dev-compat locales ffmpeg gnupg2 apt-transport-https software-properties-common ca-certificates tzdata \
         	lua5.3 libz-dev rapidjson-dev \
     		&& curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - \
-    		&& echo "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list \
+    		&& echo "deb [arch=amd64] https://download.docker.com/linux/debian buster stable" > /etc/apt/sources.list.d/docker.list \
     		&& apt update \
     		&& apt install -y docker-ce docker-ce-cli containerd.io \
     		&& dpkg-reconfigure --frontend noninteractive locales \
