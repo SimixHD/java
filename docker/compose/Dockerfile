@@ -10,7 +10,6 @@ RUN 	    apt update && apt upgrade -y \
         	lua5.3 libz-dev rapidjson-dev \
     		&& curl -SL https://github.com/docker/compose/releases/download/v2.32.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose \
     		&& chmod +x /usr/local/bin/docker-compose \
-    		&& update-locale LANG=en_US.UTF-8 \
     		&& dpkg-reconfigure --frontend noninteractive locales \
     		&& useradd -m -d /home/container -s /bin/bash container \
     		&& apt clean && rm -rf /var/lib/apt/lists/*
