@@ -1,4 +1,4 @@
-FROM        --platform=$TARGETOS/$TARGETARCH debian:stable-slim
+FROM        --platform=$TARGETOS/$TARGETARCH debian:buster-slim
 
 LABEL       org.opencontainers.image.source="https://github.com/SimixHD/java"
 LABEL       org.opencontainers.image.licenses=MIT
