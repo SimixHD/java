@@ -10,7 +10,7 @@ on:
       - docker/**
 jobs:
   push:
-    name: "docker:docker_${{ matrix.tag }}"
+    name: "cyolks:docker_${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -35,4 +35,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/simixhd/docker:docker_${{ matrix.tag }}
+            ghcr.io/simixhd/cyolks:docker_${{ matrix.tag }}
