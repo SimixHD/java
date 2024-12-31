@@ -30,7 +30,7 @@ jobs:
           password: ${{ secrets.REGISTRY_TOKEN }}
       - uses: docker/build-push-action@v4
         with:
-          context: ./docker
+          context: ./docker/${{ matrix.tag }}
           file: ./docker/${{ matrix.tag }}/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
