@@ -1,6 +1,6 @@
-FROM        --platform=$TARGETOS/$TARGETARCH compose:latest
+FROM        --platform=$TARGETOS/$TARGETARCH debian:stable-slim
 
-LABEL       org.opencontainers.image.source="https://github.com/docker/compose"
+LABEL       org.opencontainers.image.source="https://github.com/SimixHD/java"
 LABEL       org.opencontainers.image.licenses=MIT
 
 RUN         apk add --update --no-cache ca-certificates tzdata \
@@ -9,6 +9,9 @@ RUN         apk add --update --no-cache ca-certificates tzdata \
 USER        container
 ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
+
+RUN curl -L "https://github.com/docker/compose/releases/download/2.32.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+RUN chmod +x /usr/local/bin/docker-compose
 
 COPY        ./entrypoint.sh /entrypoint.sh
 CMD         [ "/bin/ash", "/entrypoint.sh" ]
